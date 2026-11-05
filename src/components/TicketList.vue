@@ -19,6 +19,7 @@ const prioriteFiltre = ref('')
 const chargement = ref(true)
 const erreur = ref('')
 
+// Cette valeur est recalculée automatiquement quand la recherche ou un filtre change.
 const ticketsVisibles = computed(() => {
   const rechercheNormalisee = recherche.value.trim().toLowerCase()
 
@@ -30,6 +31,7 @@ const ticketsVisibles = computed(() => {
   })
 })
 
+// Les valeurs reçues par l'API sont associées aux classes CSS des badges.
 function badgeClass(value: string) {
   const classes: Record<string, string> = {
     Haute: 'badge-priority-high',
@@ -43,6 +45,8 @@ function badgeClass(value: string) {
 }
 
 async function chargerTickets() {
+  // Les états sont remis à zéro avant chaque chargement pour éviter d'afficher
+  // une ancienne erreur pendant la nouvelle requête.
   chargement.value = true
   erreur.value = ''
 
