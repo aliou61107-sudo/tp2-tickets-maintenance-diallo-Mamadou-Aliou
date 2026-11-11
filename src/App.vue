@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import TicketList from './components/TicketList.vue'
-</script>
-
 <template>
   <main class="app-shell">
     <header class="app-header">
@@ -13,6 +9,11 @@ import TicketList from './components/TicketList.vue'
       <div class="header-mark" aria-hidden="true">TM</div>
     </header>
 
-    <TicketList />
+    <nav class="main-nav" aria-label="Navigation principale">
+      <RouterLink to="/tickets">Liste des tickets</RouterLink>
+      <RouterLink to="/tickets/nouveau">Nouveau ticket</RouterLink>
+    </nav>
+
+    <RouterView />
   </main>
 </template>

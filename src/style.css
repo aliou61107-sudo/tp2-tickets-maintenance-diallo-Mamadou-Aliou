@@ -100,6 +100,127 @@ h1 {
   box-shadow: 0 12px 30px rgba(34, 51, 84, 0.07);
 }
 
+.main-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.main-nav a {
+  padding: 10px 14px;
+  border-radius: 9px;
+  color: #45536b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-nav a.router-link-active {
+  color: #fff;
+  background: #3569b8;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button-primary {
+  color: #fff;
+  background: #3569b8;
+}
+
+.button-secondary {
+  color: #315d9c;
+  border-color: #c9d6e8;
+  background: #f5f8fc;
+}
+
+.button-danger {
+  color: #a52b2b;
+  border-color: #f1caca;
+  background: #fff5f5;
+}
+
+.ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.form-panel {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.page-heading h2 {
+  margin: 0;
+  color: #14213d;
+  font-size: 1.65rem;
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd4e1;
+  border-radius: 9px;
+  color: #172033;
+  resize: vertical;
+}
+
+.field textarea:focus {
+  outline: 3px solid rgba(53, 105, 184, 0.2);
+  border-color: #3569b8;
+}
+
+.form-error {
+  padding: 12px;
+  border-radius: 8px;
+  color: #9c2929;
+  background: #fff0f0;
+}
+
+.detail-date {
+  color: #5e6b82;
+}
+
 .filters {
   display: grid;
   grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(160px, 1fr));
@@ -250,6 +371,11 @@ h1 {
   background: #daf4e3;
 }
 
+.badge-status-closed {
+  color: #5c6472;
+  background: #e6e8ec;
+}
+
 .state {
   padding: 32px 16px;
   border-radius: 12px;
@@ -270,8 +396,13 @@ h1 {
 
 @media (max-width: 800px) {
   .filters,
-  .tickets {
+  .tickets,
+  .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
   }
 }
 

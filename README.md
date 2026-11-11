@@ -1,11 +1,12 @@
-# TP1 - Tickets de maintenance
+# TP2 - Tickets de maintenance
 
-Application Vue 3 permettant de consulter des tickets de maintenance depuis une API REST simulée avec JSON Server.
+Application Vue 3 permettant de consulter et gérer des tickets de maintenance depuis une API REST simulée avec JSON Server.
 
 ## Identité
 
-- Nom : À compléter
-- Prénom : À compléter
+- Nom : DIALLO
+- Prénom : MAMADOU ALIOU
+- Classe : L2DSI1
 
 ## Prérequis
 
@@ -47,18 +48,41 @@ Ouvrir ensuite l'adresse indiquée par Vite, généralement [http://localhost:51
 - Compteur du nombre de tickets visibles
 - Message si aucun ticket ne correspond aux filtres
 - Badges visuels et accessibles pour les priorités et les statuts
+- Création, modification et suppression des tickets avec persistance dans JSON Server
+- Navigation avec Vue Router entre la liste, la création et le détail d'un ticket
+- Changement rapide du statut d'un ticket
+- Validation des champs obligatoires et protection contre les doubles clics
+- Gestion des tickets inexistants et des erreurs réseau
 
 ## Captures demandées
 
 Créer un dossier `captures/` et y ajouter les captures suivantes avant le rendu :
 
-1. `capture-01-api.png` : réponse JSON de `GET /tickets`
-2. `capture-02-trois-tickets.png` : application affichant les trois tickets
-3. `capture-03-recherche.png` : résultat d'une recherche par titre
-4. `capture-04-filtres.png` : filtrage combiné du statut et de la priorité
-5. `capture-05-erreur.png` : message affiché lorsque JSON Server est arrêté
+1. `capture-01-creation.png` : formulaire de création renseigné
+2. `capture-02-ticket-cree.png` : ticket nouvellement créé dans la liste
+3. `capture-03-modification.png` : formulaire de modification et statut mis à jour
+4. `capture-04-detail.png` : page de détail d'un ticket
+5. `capture-05-confirmation-suppression.png` : dialogue de confirmation de suppression
+6. `capture-06-validation.png` : message de validation d'un champ obligatoire
+7. `capture-07-erreur.png` : message d'erreur réseau ou ticket inexistant
 
 ## Questions
+
+### Différence entre POST, PUT et PATCH
+
+`POST` crée une nouvelle ressource. `PUT` remplace généralement une ressource complète. `PATCH` modifie seulement certains champs d'une ressource existante. Dans ce projet, `POST` est utilisé pour créer un ticket et `PATCH` pour modifier les champs changés.
+
+### Pourquoi une confirmation avant DELETE ?
+
+Une suppression avec `DELETE` est une action difficile à annuler. La confirmation évite de supprimer un ticket par erreur et laisse à l'utilisateur la possibilité d'annuler.
+
+### Quel est le rôle de Vue Router ?
+
+Vue Router associe une URL à un composant Vue. Il permet de naviguer entre la liste (`/tickets`), le formulaire de création (`/tickets/nouveau`) et le détail d'un ticket (`/tickets/:id`) sans recharger toute la page.
+
+### Comment éviter les doublons lors de l'enregistrement ?
+
+Le bouton d'enregistrement est désactivé grâce à une variable réactive pendant la requête réseau. Ainsi, l'utilisateur ne peut pas envoyer plusieurs fois le même formulaire en cliquant rapidement.
 
 ### Quelle différence entre une API REST et le fichier `db.json` ?
 
